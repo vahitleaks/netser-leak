@@ -1,0 +1,261 @@
+        <html>
+        <head>
+        <title>Crystal Info</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9">
+        <script language="JavaScript">
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+// -->
+</script>
+<script LANGUAGE="javascript">
+function popup(popup_url, popup_name, winWidth, winHeight){
+  scrL = (screen.width - winWidth) / 2;
+  scrT = ((screen.height - winHeight) / 2);
+  yeni = window.open(popup_url, popup_name, "width="+winWidth+",height="+winHeight+",status=yes,resizable=yes,scrollbars=yes,menubar=yes,top="+scrT+",left="+scrL);
+  yeni.focus();
+}
+</script>
+        <link rel="stylesheet" href="http://212.57.3.188/crystal.css" TYPE="text/css">
+        </head>
+        <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<center><script>
+
+function CheckEmail (strng) {
+    var error="";
+    var emailFilter=/^.+@.+\..{2,3}$/;
+    if (!(emailFilter.test(strng))) { 
+       alert("Lütfen geçerli bir e-mail adresi giriniz.\n");
+       return 0;
+    }
+    else {
+       var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/;
+       if (strng.match(illegalChars)) {
+             alert("Girdiğiniz e-mail geçersiz karakterler içermektedir.\n");
+             return 0;
+       }
+    }
+    return 1;
+}
+
+   function mailPage(){
+      var keyword = prompt("Lütfen bir mail adresi giriniz.", "")
+      if(CheckEmail(keyword)){
+          var pagename = "/reports/htmlmail.php?page=/temp/outbound.html&email="+ keyword;
+          this.location.href = pagename;
+      }    
+   }
+
+</script>
+<div style="width: 77; height: 28; position: absolute; left: 709; top: 3; display: none">
+  <input type="button" value="Anasayfa" onclick="javascript:history.go(-1);">
+</div>
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td width="100%" align="center" class="rep_header" align="center">
+             
+        </td>
+    </tr>
+
+
+    <tr>
+        <td width="100%" class="rep_header" align="right">
+        <table width="100%" border="0">
+            <tr>
+                   <td width="50%" class="rep_header" align="left">Tarih (01/01/2020                                         - 18/01/2020                    )
+                </td>
+                   <td width="50%" class="rep_header" align="right" cellspacing=0 cellpadding=0>
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td width="50%" valign="top">
+                        <table>
+                            <tr  style="display:none;">
+                                <td class="rep_header" nowrap width="20%" valign="top">
+                                Dahili :                                </td>
+                                <td width="80%" valign="top">
+                                </td>
+                            </tr>
+                        
+                            <tr  style="display:none;">
+                                <td class="rep_header" nowrap width="20%" valign="top">Departman:</td>
+                                <d width="80%" valign="top">
+                                </td>
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Hat :</td>
+                                <td width="60%"></td>               
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Çıkış Şebekesi :</td>
+                                <td width="60%"></td>               
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Auth. Kodu:</td>
+                                <td width="60%"> - </td>
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Çıkış Kodu:</td>
+                                <td width="60%"></td>
+                            </tr>
+                        </table>    
+                    </td>
+                    <td width="50%">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr><td width="50%" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr  style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Arama Tipi:</td>
+                                <td width="60%"></td>
+                            </tr>
+                            <tr  style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Opt. Kodu:</td>
+                                <td width="60%"></td>
+                            </tr>
+                            <tr  style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Ülke Adı:</td>
+                                <td width="60%"></td>
+                            </tr>
+                            <tr  style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Tel No:</td>
+                                <td width="60%"></td>
+                            </tr>
+                            <tr  style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Çıkış Hattı:</td>
+                                <td width="60%"></td>
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Min. Süre:</td>
+                                <td width="60%"> dk</td>
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Aranan Şebeke:</td>
+                                <td width="60%"></td>
+                            </tr>
+                            <tr >
+                                <td class="rep_header" align="left" nowrap width="40%">Min. Ücret:</td>
+                                <td width="60%">0.01</td>
+                            </tr>
+                        </table></td>
+                        <td width="50%" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Kayıt Adedi :</td>
+                                <td width="60%" align="right"></td>                
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Fihrist :</td>
+                                <td width="60%" align="right"></td>             
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%" colspan="2">Hafta Sonu</td>
+                            </tr>
+                            <tr style="display:none;">
+                                <td class="rep_header" align="left" nowrap width="40%">Saat Dilimi :</td>
+                                <td width="60%" align="right"> - </td>              
+                            </tr>
+                        </table>    
+                        </td></tr>
+                        <tr><td colspan=2 align=right>
+                                                </td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>   
+    </tr>
+      </td>
+<!--    </tr>
+  </table>
+<TABLE WIDTH="95%">
+-->
+    <tr>
+        <td>
+            <table width="100%" border="0" bgcolor="C0C0C0" cellspacing="1" cellpadding="0" >
+                            <tr>
+                    <td class="rep_table_header" width="25%" ALIGN="center">Dahili</td>
+                    <td class="rep_table_header" width="7%" ALIGN="center">Hat No</td>
+                    <td class="rep_table_header" width="10%" ALIGN="center">Tarih</td>
+                    <td class="rep_table_header" width="10%" ALIGN="center">Saat</td>
+                    <td class="rep_table_header" width="10%" ALIGN="center">Süre</td>
+                    <td class="rep_table_header" width="15%" ALIGN="center">Telefon</td>
+                    <td class="rep_table_header" width="18%" ALIGN="center">Aranan</td>
+                    <td class="rep_table_header" width="12%" ALIGN="center">Ücret</td>
+                </tr>
+                <tr>
+                    <td colspan="11" bgcolor="#000000" height="1"></td>
+                </tr>
+                        </table>
+        </td>
+    </tr>
+    <tr height="20">
+        <td></td>
+    </tr>
+    <tr>
+        <td height="22" colspan="1"  align="right">
+           <TABLE BORDER="0" WIDTH="100%">
+            <TR>
+                <TD WIDTH="80%" ALIGN="right"><b>Toplam Görüşme Adedi :</b></TD>
+                <TD WIDTH="20%" >0</TD>
+            </TR>
+            </TABLE>
+      </td>
+    </tr>
+    <tr>
+        <td height="22" colspan="3" width="100%" align="right">
+           <TABLE BORDER="0" WIDTH="100%">
+            <TR>
+                <TD WIDTH="80%" ALIGN="right"><b>Toplam Süre :</b></TD>
+                <TD WIDTH="20%">0  Saat  0  Dk</TD>
+            </TR>
+            </TABLE>
+    </tr>
+    <tr>
+        <td height="22" colspan="3" width="100%" align="right">
+           <TABLE BORDER="0" WIDTH="100%">
+            <TR>
+                <TD WIDTH="80%" ALIGN="right"><b>Toplam Tutar :</b></TD>
+                <TD WIDTH="20%">0,00</TD>
+            </TR>
+            </TABLE>
+      </td>
+    </tr>
+     <tr>
+        <td></td>
+    </tr>
+<tr  style="display:none;">
+<td>
+</td>                        
+</tr>
+</table>                
+</table>    

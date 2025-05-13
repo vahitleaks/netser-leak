@@ -1,0 +1,3 @@
+set_id,set_auth,set_desc,set_from,set_name,set_pass,set_port,set_type,set_user,set_module,set_secure,set_server,set_fromname,set_protokol
+1,true,Santral bildirimi,santral@mniletisim.com.tr,Cry mailing,Or5TsxOn,465,giden,santral@mniletisim.com.tr,CDR,tls,mail.lgn.com.tr,Netser Santral Raporlama,smtp
+

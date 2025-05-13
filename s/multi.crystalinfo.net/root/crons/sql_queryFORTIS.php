@@ -1,0 +1,55 @@
+<?
+// Connecting, selecting database
+$link = mysql_connect('localhost', 'crinfo', 'SiGmA*19') or die('Could not connect: ' . mysql_error());
+
+mysql_select_db('MCRYSTALINFONE') or die('Could not select database');
+//        SQL Query;
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET LocalCode='537' WHERE CountryCode='53'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET PRICE='0' WHERE CountryCode='53'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET CountryCode='90' WHERE CountryCode='53'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET LocalCode='537' WHERE CountryCode='53'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET PRICE='0' WHERE CountryCode='53'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET CountryCode='90' WHERE CountryCode='53'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET Locationid='2329' WHERE Locationid='2199'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET Locationid='2329' WHERE Locationid='2199'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET LocalCode='212' WHERE CountryCode='212'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET PRICE='0' WHERE CountryCode='212'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET CountryCode='90' WHERE CountryCode='212'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET LocalCode='212' WHERE CountryCode='212'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET PRICE='0' WHERE CountryCode='212'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET CountryCode='90' WHERE CountryCode='212'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET Locationid='1953' WHERE Locationid='2106'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET Locationid='1953' WHERE Locationid='2106'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET LocalCode='216' WHERE CountryCode='216'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET PRICE='0' WHERE CountryCode='216'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET CountryCode='90' WHERE CountryCode='216'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET LocalCode='216' WHERE CountryCode='216'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET PRICE='0' WHERE CountryCode='216'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET CountryCode='90' WHERE CountryCode='216'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_01_2008 SET Locationid='1954' WHERE Locationid='2107'"; 
+mysql_query($sqlQuery,$link);
+$sqlQuery =  " UPDATE CDR_MAIN_DATA SET Locationid='1954' WHERE Locationid='2107'"; 
+mysql_query($sqlQuery,$link);
+?>

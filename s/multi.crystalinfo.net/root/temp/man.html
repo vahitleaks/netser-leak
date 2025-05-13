@@ -1,0 +1,166 @@
+<center>
+<br><br>
+
+<script language="JavaScript">
+   function CheckEmail (strng) {
+       var error="";
+       var emailFilter=/^.+@.+\..{2,3}$/;
+       if (!(emailFilter.test(strng))) { 
+          alert("Lütfen geçerli bir e-mail adresi giriniz.\n");
+          return 0;
+       }
+       else {
+          var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/
+          if (strng.match(illegalChars)) {
+                alert("Girdiðiniz e-mail geçersiz karakterler içermektedir.\n");
+                return 0;
+          }
+       }
+       return 1;
+   }   
+    function mailPage(page){
+         var keyword = prompt("Lütfen bir mail adresi giriniz.", "")
+         if(CheckEmail(keyword)){
+             var pagename = "/reports/htmlmail.php?page=/temp/"+page+  "&email="+ keyword;
+             this.location.href = pagename;
+         }    
+      }   
+   
+</script>
+
+<table width="85%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="4" width="100%" align="center" class="" align="center">
+          <TABLE BORDER="0" WIDTH="100%">
+            <TR>
+              <TD><a href="http://www.crystalinfo.net" target="_blank"><img border="0" SRC="http://10.16.16.24:80/images/logo2.gif" ></a></TD>
+              <TD align=center CLASS="header"><BR>YÖNETÝM RAPORU</TD>
+              <TD align=right><img SRC="http://10.16.16.24:80/images/company.gif"></TD>
+            </TR>
+            </TABLE>
+
+      </td>
+  </tr>
+  <tr>
+    <td align="right" colspan=4>
+
+       <table width="100%" cellspacing=0 cellpadding=0>
+        <tr><td width="50%" class="rep_header" align="left">
+                      Tarih (01/07/2020                                 - 07/07/2020            )         </td><td width="50%" class="rep_header" align="right">
+          <table cellspacing=0 cellpadding=0>
+            <tr>
+              <td><img src="http://10.16.16.24:80/images/report/top02.gif" border=0></td>
+              <td><a href="javascript:mailPage('man.html')"><img src="http://10.16.16.24:80/images/report/mail.gif" border=0 title="Mail"></a></td>
+              <td><a href="javascript:history.back(1);"><img src="http://10.16.16.24:80/images/report/geri.gif" border=0 title="Geri"></a></td>
+              <td><a href="javascript:history.forward(1);"><img src="http://10.16.16.24:80/images/report/ileri.gif" border=0 title="Ýleri"></a></td>
+              <td><a href="javascript:document.all('sort_me').submit();"><img src="http://10.16.16.24:80/images/report/yenile.gif" border=0 title="Yenile"></a></td>
+              <td><a href="javascript:window.print();"><img src="http://10.16.16.24:80/images/report/print.gif" border=0 title="Yazdýr"></a></td>
+              <td><img src="http://10.16.16.24:80/images/report/top01.gif" border=0></td>
+            </tr>
+          </table>
+         </td></tr>
+        </table>
+        </td>
+    </tr>    
+   <TR class="" >
+       <TD  colspan=4 ALIGN="center">
+          <table BORDER="0" width="100%">
+               <TR class="" >
+                 <TD class="" colspan=2 ALIGN="center" width="50%">
+                 
+                  <IMG SRC="http://10.16.16.24:80/reports/man/managament_rep_ch_sure.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="" BORDER="0">    <br>
+                  Arama Sürelerinin çaðrý tiplerine Göre Daðýlýmý
+                  </TD>
+                 <TD class="" colspan=2  ALIGN="center" width="50%">
+                 
+                    <IMG SRC="http://10.16.16.24:80/reports/man/managament_rep_ch.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="" BORDER="0">    <br>
+                  Arama Tutarlarýnýn çaðrý tiplerine Göre Daðýlýmý
+                  </TD>
+               </TR>
+               <TR class="" >
+                 <TD class="" colspan=4 ALIGN="center">
+                                   
+                  <IMG SRC="http://10.16.16.24:80/reports/man/managament_rep_legend.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="" BORDER="0">    
+                  </TD>
+               </TR>
+          </table>
+       </TD>
+     
+     </TR>
+   <TR class="" >
+       <TD  colspan=4 ALIGN="center">
+          <table WIDTH="420">
+                     <TR class="" >
+                       <TD class=rep_table_header colspan=4>Telefon Gider Daðýlýmý</TD>
+                     </TR>
+               
+                     <TR class="" >
+                       <TD class=header ></TD>
+                        <TD class=header>Süre(Saniye)</TD>
+                       <TD class=header>Tutar(TL)</TD>
+                     </TR>
+                         <tr  BGCOLOR=FFFFFF>      
+                                <TD class=header>Þehir Ýçi</TD>
+                                <TD class=text>2 dk 57 sn</TD>
+                                <TD class=text ALIGN="right">0,68</TD>
+                              </TR>
+                         <tr  BGCOLOR=E4E4E4>      
+                                <TD class=header>Þehirlerarasý</TD>
+                                <TD class=text>12 sn</TD>
+                                <TD class=text ALIGN="right">0,17</TD>
+                              </TR>
+                         <tr  BGCOLOR=FFFFFF>      
+                                <TD class=header>GSM</TD>
+                                <TD class=text>1 saat 3 dk 17 sn</TD>
+                                <TD class=text ALIGN="right">27,20</TD>
+                              </TR>
+                                                    <tr bgcolor=E4E4E4>
+                                <TD class=header>Toplam</TD>
+                                <TD class=text><b>1 saat 6 dk 26 sn</b></TD>
+                                <TD class=text ALIGN="right"><b>28,05</b></TD>
+                              </TR>
+                  </table>
+              </TD>
+           </TR>
+   
+            <TR>
+              <TD align = "center">
+                 <table width="100%">
+                  <tr align = "center">
+                 
+                   <td width="50%">
+                  Seçilen Tarih Aralýðýnda En Fazla Çaðrý Yapan Ýlk 5 Dahili<br>
+                   <IMG SRC="http://10.16.16.24:80/reports/man/man_top5_dahili.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="Top 5 Dahili" BORDER="0">&nbsp;
+                   </td>
+                 
+                 <td width="50%">
+                  Seçilen Tarih Aralýðýnda En Fazla Çaðrý Yapan Ýlk 5 Departman<br>
+                   <IMG SRC="http://10.16.16.24:80/reports/man/man_top5dept.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="Top 5 Departman" BORDER="0">
+                   </td>
+                  </tr>
+                  <tr align = "center">
+                   <td width="50%">
+                 
+                  Seçilen Tarih Aralýðýnda En Fazla Çaðrýnýn Yapýldýðý Ýlk 5 Ýl<br>
+                   <IMG SRC="http://10.16.16.24:80/reports/man/man_top5il.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="Top 5 Ýl" BORDER="0">&nbsp;
+                   </td>
+                 
+                   <td width="50%">
+                  Seçilen Tarih Aralýðýnda En Fazla Çaðrýnýn Yapýldýðý Ýlk 5 Ülke<br>
+                   <IMG SRC="http://10.16.16.24:80/reports/man/man_top5ulke.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="Top 5 Ülke" BORDER="0"></td>
+                  </tr>
+                 </table>
+                </TD>
+            </TR>
+            <TR>
+              <TD align = "center">
+                 
+              <IMG SRC="/reports/man/man_operatorler.php?act=src&myrep_type=&SITE_ID=3&last=-1&MY_DATE=c&t0=&t1=&hafta=3&mesai=3&hh0=-1&hm0=-1&hh1=-1&hm1=-1&PHPSESSID=k63ffokcchlmk4ek1ribsr3hj4op55uh&" ALT="Operatörlerin Kullanýmý" BORDER="0"><br>
+                  Seçilen Tarih Aralýðýnda GSM Operatörlerine Yapýlan Çaðrýlarýn Daðýlýmý
+              </TD>
+              </TR>
+      </TABLE>
+<br><br><br>
+
+</center>
+

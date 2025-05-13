@@ -1,0 +1,195 @@
+<?
+  require_once(dirname($DOCUMENT_ROOT)."/cgi-bin/functions.php");
+  $cUtility = new Utility();
+  $cdb = new db_layer();
+  require_valid_login();
+  session_cache_limiter('nocache');
+  $conn = $cdb->getConnection();
+  cc_page_meta(0);
+  check_right("SITE_ADMIN");
+  $cmp = get_system_prm("COMPANY_NAME");
+
+  ob_start();
+?>
+<form name="general_search" method="post" action="report_general_prn.php?act=src">
+<center>
+<br><br>
+<table width="900" border="0" cellspacing="2" cellpadding="0">
+  <tr>
+    <td colspan="2" width="100%" align="center" class="" align="center">
+    <TABLE BORDER="0" WIDTH="100%">
+      <TR>
+        <TD><a href="http://www.crystalinfo.net" target="_blank"><img border="0" SRC="<?=IMAGE_ROOT?>logo2.gif" ></a></TD>
+        <TD align=center CLASS="header"><?echo $cmp;?>
+		<BR><BR>ÞÝRKET GENEL ANALÝZ RAPORU
+		</TD>
+        <TD align=right><img SRC="<?=IMAGE_ROOT?>company.gif"></TD>
+      </TR>
+    </TABLE>
+    </td>
+  </tr>
+  <tr><td height="15" colspan="2"></td></tr>
+  <tr>
+    <td align="center"><IMG SRC="prc_count.php" ALT="" BORDER="0"></td>
+    <td align="center"><IMG SRC="cmpMonth.php" BORDER="0"></td>
+  </tr>	
+  <tr><td height="10" colspan="2"></td></tr>
+  <tr align="center">
+    <td width="100%" colspan="2"><IMG SRC="cmpSites.php" BORDER="0"></td>
+  </tr>
+  <tr><td height="15" colspan="2"></td></tr>
+  <tr>
+	<td height="22" colspan="2" align="center">
+    <table cellspacing="1" cellpadding="2" width="100%">
+      <tr align="center">
+        <td width="90%" height="22" colspan="10" bgcolor="#88ACD5" class="header">Son Ýki Ayýn Karþýlaþtýrmalý Analiz Raporu</td>
+      </tr>
+	<?
+      $t0 = strftime("%Y-%m", mktime(0,0,0,date("m")-1,date("d"),date("y")));
+      $t1 = strftime("%Y-%m", mktime(0,0,0,date("m")-2,date("d"),date("y")));
+      $strsql = "SELECT SITE_ID, SITE_NAME FROM SITES";
+	  $cdb->execute_sql($strsql, $result, $errmsg);
+	  while($row = mysql_fetch_array($result)){
+	    $sites[$row['SITE_ID']] = $row['SITE_NAME'];
+	  }
+	  echo "<tr bgcolor='#FFCC00' class='header_sm' height='22' align=center>
+	         <td>SÝTE ADI</td>
+			 <td>ÞEHÝR ÝÇÝ</td>
+			 <td>ÞEHÝRLERARASI</td>
+	         <td>GSM</td>
+			 <td>ULUSLARARASI</td>
+			 <td>DÝÐER</td>
+			 <td>TOPLAM</td>
+		     <td>ÖNCEKÝ AY</td>
+			 <td>DEÐÝÞÝM</td>
+		    </tr>";
+	  $ii = 0;
+	  $gen_tot = array();
+	  $gen_tot[$i] = 0;
+	  $gen_last_prc = 0;
+	  foreach ($sites as $value => $key){
+        $bgcolor = "#B3CAE3";
+	    if ($ii%2 == 0)
+	      $bgcolor = "#D8E4F1";
+	    $ii++;
+	    $strsql2 = " SELECT LOC_PRICE, NAT_PRICE, GSM_PRICE, INT_PRICE, OTH_PRICE, 
+		              CONCAT(TIME_STAMP_YEAR,'-',LPAD(TIME_STAMP_MONTH,2,'0')) AS MONTH
+		             FROM MONTHLY_ANALYSE
+		             WHERE SITE_ID = ".$value." AND TYPE = 'general' 
+				     AND (CONCAT(TIME_STAMP_YEAR,'-',LPAD(TIME_STAMP_MONTH,2,'0')) = '".$t0."' OR
+					      CONCAT(TIME_STAMP_YEAR,'-',LPAD(TIME_STAMP_MONTH,2,'0')) = '".$t1."')
+				     ORDER BY MONTH DESC";
+	$cdb->execute_sql($strsql2, $result2, $errmsg);
+        if ($result2){
+        ///Ýlk fetch. Geçan ay alýnýyor
+	    $row2 = mysql_fetch_row($result2);
+	    echo "<tr bgcolor='$bgcolor' height=18>";
+	    echo "<td class='header_sm'>".$key."</td>";
+	    $total = 0;
+		for ($i = 0; $i < 5; $i++){
+		  echo "<td align='right'>";
+		  echo  write_price($row2[$i]);
+	      echo "</td>";
+		  $total += $row2[$i];
+		  $gen_tot[$i] = $gen_tot[$i] + $row2[$i];
+   	    }
+	    echo "<td align='right' class='header_sm'>".write_price($total)."</td>";
+        ///Ýkinci fetch. Bir önceki ay alýnýyor
+	    $row2 = mysql_fetch_row($result2);
+	    $totalLM =  $row2[0]+$row2[1]+$row2[2]+ $row2[3]+$row2[4];
+	    $gen_last_prc = $gen_last_prc + $totalLM;
+		echo "<td align='right' class='header_sm'>".write_price($totalLM)."</td>";
+	    if ($totalLM > 0){
+	      $var = (($total-$totalLM)/$totalLM)*100;
+	      if ($var < 0)
+	        $bcol = "#66C105"; /* yesil */
+		  else $bcol = "#FC3636"; /* Kirmizi */
+        }else{
+	      $var = 0;
+	    }
+        echo "<td bgcolor = $bcol>%";
+	    printf("%.1f",$var);
+	    echo "</td>";
+	    echo "</tr>";
+      }
+     }
+	  echo "<tr bgcolor='#FFCC00' class='header_sm' height='22' align=center>
+	         <td>Genel Toplam</td>
+			 <td align='right'>".write_price($gen_tot[0])."</td>
+			 <td align='right'>".write_price($gen_tot[1])."</td>
+	         <td align='right'>".write_price($gen_tot[2])."</td>
+			 <td align='right'>".write_price($gen_tot[3])."</td>
+			 <td align='right'>".write_price($gen_tot[4])."</td>";
+			 $gen_this_prc = $gen_tot[0]+ $gen_tot[1]+$gen_tot[2]+$gen_tot[3]+$gen_tot[4];
+	  echo	 "<td align='right'>".write_price($gen_this_prc)."</td>
+		     <td align='right'>".write_price($gen_last_prc)."</td>";
+	         if ($gen_last_prc > 0){
+	           $var = (($gen_this_prc-$gen_last_prc)/$gen_last_prc)*100;
+	           if ($var < 0)
+	             $bcol = "#66C105"; /* yesil */
+		       else 
+			     $bcol = "#FC3636"; /* Kirmizi */
+             }else{
+	           $var = 0;
+	         }
+             echo "<td bgcolor = $bcol>%";
+	         printf("%.1f",$var);
+	         echo "</td>
+		    </tr>";
+?>
+  <tr><td height="15" colspan="2"></td></tr>      
+	  <tr>
+        <td align = "center" colspan="10">
+        <INPUT name="add_comment" type="hidden" value="1">
+       <INPUT type="submit"  value="ekle">
+		  <TEXTAREA name="comment" class="text" rows="10" cols="153">Rapora eklemek istediginiz yorumlari buraya yazabilirisiniz...</TEXTAREA>
+          <br><INPUT type="submit" value="Yazdir" onclick="javascript:print();"><INPUT type="reset" value="Temizle">	 
+       <INPUT type="submit" onClick="javascript:mailPage('general.html')" value="E-mail Yolla">
+       
+        </td>
+	  </tr>
+    </td>
+	</table>
+  </tr>
+  <tr><td hright="15"></td></tr>
+</table>
+</center>
+<script language="JavaScript">
+  function submit_form(sortby){
+    document.all('sort_me').action='/reports/general/report_general_prn.php?act=src&type=<?=$type?>&order=' + sortby;    
+    document.all('sort_me').submit();
+   }
+function CheckEmail (strng) {
+    var error="";
+    var emailFilter=/^.+@.+\..{2,3}$/;
+    if (!(emailFilter.test(strng))) { 
+       alert("Lütfen geçerli bir e-mail adresi giriniz.\n");
+       return 0;
+    }
+    else {
+       var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/
+       if (strng.match(illegalChars)) {
+             alert("Girdiðiniz e-mail geçersiz karakterler içermektedir.\n");
+             return 0;
+       }
+    }
+    return 1;
+}   
+ function mailPage(page){
+      var keyword = prompt("Lütfen bir mail adresi giriniz.", "")
+      if(CheckEmail(keyword)){
+          var pagename = "/reports/htmlmail.php?page=/temp/"+page+  "&email="+ keyword;
+          this.location.href = pagename;
+      }    
+   }
+</script>
+
+<?
+
+   $fd = fopen($DOCUMENT_ROOT."/temp/general.html", w);
+   if ($add_comment)
+      fwrite($fd,ob_get_contents().$comment);
+   else
+      fwrite($fd,ob_get_contents());
+   ob_end_flush();
+?>

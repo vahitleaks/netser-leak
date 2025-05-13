@@ -1,0 +1,16 @@
+<?
+define ("DB_IP", "localhost");  
+define ("DB_NAME", "MCRYSTALINFO"); 
+define ("DB_USER", "crinfo");  
+define ("DB_PWD", "SiGmA*19"); 
+define ("MYSQLSOCK", "/tmp/mysql.sock"); 
+define ("SMTP_SERVER", "10.20.0.3");
+define ("SMTP_AUTH", false);
+define ("SMTP_USER", ""); 
+define ("SMTP_PWD", ""); 
+define ("SMTP_FROMNAME", "Crystalinfo'dan  ");
+define ("SMTP_FROM", "crystal@vodasoft.net");
+define ("SMTP_PMASTER", "postmaster@crystalinfo.net");
+define ("SMTP_CHARSET", "iso-8859-9");
+define ("SMTP_HTML", "true");
+?>
